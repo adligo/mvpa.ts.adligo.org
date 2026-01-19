@@ -1,4 +1,7 @@
 /**
+ * This file contains all of the vaious event wrappers, that encapsulate and simplify logic
+ * to get data out of the events themselves.
+ * 
  * Copyright 2026 Adligo Inc / Scott Morgan
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -12,29 +15,18 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+ * 
  */
 
-import { I_View, I_Window } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
-import { isMissing } from "./utils.mjs";
 
-export class BaseView {
-  public static readonly A_VIEW_ID_IS_REQUIRED = "A viewId is required!";
-  private _viewId: string;
-  
-  constructor(viewId: string) {
-    if (isMissing(viewId)) {
-      throw new Error(BaseView.A_VIEW_ID_IS_REQUIRED);
-    }
-    this._viewId = viewId;
+export class ViewEvent implements I_ViewEvent {
+  public static readonly formEvent = () => {
+    
   }
-  
-  get viewId(): string {
-    return this._viewId;
+  public static readonly of = (event) => {
+    
   }
-}
-
-export class Window implements I_Window {
-  alert(message: string) {
-    window.alert(message);
+  constructor(name: string, view: I_View, event: any) {
+    
   }
 }

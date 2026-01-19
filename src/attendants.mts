@@ -13,10 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import {I_Presenter} from "@ts.adligo.org/i_mvpa/dist/i_presenter.mjs";
+
+import {ClientAppConstants} from "./clientApp.mjs";
+import {BasePresenter, MainPresenter} from "./presenters.mjs";
+import { isMissing } from "./utils.mjs";
 
 /**
- * The MainAttendant is responsible for managing the subordinate Attendants
+ * The MainAttendant is responsible for managing the subordinate Attendants and Presenters their associations and construction.
  */
 export class MainAttendant {
-  
+  private readonly attendantSuppliers: Map<String, I_Presenter> = new Map();
+  private readonly presenters: Map<String, I_Presenter> = new Map();
+  private readonly presenterSuppliers: Map<String, I_Presenter> = new Map();
 }

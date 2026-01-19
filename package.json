@@ -2,8 +2,16 @@
   "bin": {
     "clientApp.mjs": "./dist/clientApp.mjs",
     "clientApp.mts": "./src/clientApp.mts",
+    "events.mjs": "./dist/events.mjs",
+    "events.mts": "./src/events.mts",
     "presenter.mjs": "./dist/presenters.mjs",
-    "presenter.mts": "./src/presenters.mts"
+    "presenter.mts": "./src/presenters.mts",
+    "utils.mjs": "./dist/utils.mjs",
+    "utils.mts": "./src/utils.mts",
+    "view.mjs": "./dist/view.mjs",
+    "view.mts": "./src/view.mts",
+    "windowRegistry.mjs": "./dist/windowRegistry.mjs",
+    "windowRegistry.mts": "./src/windowRegistry.mts"
   },
   "name": "mvpa.ts.adligo.org",
   "version": "0.0.1",

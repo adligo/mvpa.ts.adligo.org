@@ -15,14 +15,27 @@
  */
 
 import { I_Presenter } from "@ts.adligo.org/i_mvpa/dist/i_presenter.mjs";
-import { I_ViewEvent } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
+import { I_ViewEvent } from "@ts.adligo.org/i_mvpa/dist/i_events.mjs";
+import { I_View } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
+import { ViewEvent } from "events.mjs";
+
+export abstract class BasePresenter implements I_Presenter {
+    onViewEvent<T>(event: I_ViewEvent<T>) {
+        throw new Error("Method not implemented.");
+    }
+
+    sendViewEvent(name: string, view: I_View, event: any) {
+      console.log("BasePresenter " + JSON.stringify(event));
+      new ViewEvent(name, view, event);
+    }
+}
 
 /**
  * The MainPresenter is responsible for managing the subordinate Presenters
  */
 
 
-export class MainPresenter implements I_Presenter {
+export class MainPresenter extends BasePresenter implements I_Presenter {
     onViewEvent(event: I_ViewEvent) {
         throw new Error("Method not implemented.");
     }

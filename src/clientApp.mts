@@ -18,36 +18,6 @@ import {I_ClientApp, I_ClientAppParams } from "@ts.adligo.org/i_mvpa/dist/i_clie
 import { I_Presenter } from "@ts.adligo.org/i_mvpa/dist/i_presenter.mjs";
 
 
-/**
- * Setup the registry on the window object,
- * only if the window object exists (i.e. were executing in a browser).
- */
-declare global {
-  interface Window {
-    registry: { [key: string]: any };
-  }
-}
-if (window !== null && window !== undefined) {
-  if (window.registry === null || window.registry === undefined) {
-    window.registry = {};
-  }
-}
-
-export class Window implements I_Window {
-  alert(message: string) {
-    window.alert(message);
-  }
-
-  bindToRegistry(name: string, value: any, writable: boolean, enumerable: boolean, configurable: boolean) {
-    Object.defineProperty(window.registry, name, {
-      value: value,
-      writable: writable,
-      enumerable: enumerable,
-      configurable: configurable
-    });
-  }
-}
-
 
 export class ClientAppConstants {
   public static readonly BODY = "body";
@@ -81,10 +51,6 @@ export class ClientApp implements I_ClientApp {
     this._window = params.window;
   }
 
-  bindToWindow()  {
-    this._window.bindToRegistry(this._name, this, false, true, false);
-    return this;
-  }
 
   get name() : string {
     return this._name;
@@ -97,5 +63,5 @@ export class ClientApp implements I_ClientApp {
       throw new Error("Method not implemented.");
   }
 
-
 }
+

@@ -14,27 +14,18 @@
  * limitations under the License.
  */
 
-import { I_View, I_Window } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
-import { isMissing } from "./utils.mjs";
-
-export class BaseView {
-  public static readonly A_VIEW_ID_IS_REQUIRED = "A viewId is required!";
-  private _viewId: string;
-  
-  constructor(viewId: string) {
-    if (isMissing(viewId)) {
-      throw new Error(BaseView.A_VIEW_ID_IS_REQUIRED);
+export function isMissing(o: any): boolean {
+  if (o === null) {
+    return true;
+  }
+  if (o === undefined) {
+    return true;
+  }
+  if (typeof o === "string") {
+    let s = o as string;
+    if (s.trim().length == 0) {
+      return true;
     }
-    this._viewId = viewId;
   }
-  
-  get viewId(): string {
-    return this._viewId;
-  }
-}
-
-export class Window implements I_Window {
-  alert(message: string) {
-    window.alert(message);
-  }
+  return false;
 }
