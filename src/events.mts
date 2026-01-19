@@ -17,9 +17,10 @@
  * limitations under the License.
  * 
  */
+import { I_ViewEvent } from "@ts.adligo.org/i_mvpa/dist/i_events.mjs";
+import { I_View } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
 
-
-export class ViewEvent implements I_ViewEvent {
+export class ViewEvent<T> implements I_ViewEvent<T> {
   public static readonly formEvent = () => {
     
   }
@@ -29,4 +30,26 @@ export class ViewEvent implements I_ViewEvent {
   constructor(name: string, view: I_View, event: any) {
     
   }
+
+  get event(): T {
+        throw new Error("Method not implemented.");
+    }
+    get hasName(): boolean {
+        throw new Error("Method not implemented.");
+    }
+    get hasView(): boolean {
+        throw new Error("Method not implemented.");
+    }
+    get name(): string {
+        throw new Error("Method not implemented.");
+    }
+    get unwrap(): any {
+        throw new Error("Method not implemented.");
+    }
+    get view(): I_View {
+        throw new Error("Method not implemented.");
+    }
+    get viewId(): string {
+        throw new Error("Method not implemented.");
+    }
 }

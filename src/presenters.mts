@@ -17,7 +17,7 @@
 import { I_Presenter } from "@ts.adligo.org/i_mvpa/dist/i_presenter.mjs";
 import { I_ViewEvent } from "@ts.adligo.org/i_mvpa/dist/i_events.mjs";
 import { I_View } from "@ts.adligo.org/i_mvpa/dist/i_view.mjs";
-import { ViewEvent } from "events.mjs";
+import { ViewEvent } from "./events.mjs";
 
 export abstract class BasePresenter implements I_Presenter {
     onViewEvent<T>(event: I_ViewEvent<T>) {
@@ -36,7 +36,7 @@ export abstract class BasePresenter implements I_Presenter {
 
 
 export class MainPresenter extends BasePresenter implements I_Presenter {
-    onViewEvent(event: I_ViewEvent) {
+    onViewEvent<T>(event: I_ViewEvent<T>) {
         throw new Error("Method not implemented.");
     }
 
